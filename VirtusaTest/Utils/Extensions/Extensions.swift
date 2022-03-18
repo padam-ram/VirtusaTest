@@ -55,7 +55,7 @@ extension UIViewController {
     }
     
     func hideindicator(){
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.dismiss(animated: false, completion: nil)
         }
     }

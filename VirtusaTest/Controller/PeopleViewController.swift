@@ -43,12 +43,13 @@ class PeopleViewController: UIViewController {
             switch result {
             case .success(let model):
                 model.forEach({ (model) in
-                    DispatchQueue.main.async { [self] in
-                        peopleArray.append(model)
-                        peopleArray = peopleArray.sorted(by: { $0.firstName! < $1.firstName! })
-                        peopleTable.reloadData()
-                    }
+                    self.peopleArray.append(model)
                 })
+                
+                DispatchQueue.main.async { [self] in
+                    peopleArray = peopleArray.sorted(by: { $0.firstName! < $1.firstName! })
+                    peopleTable.reloadData()
+                }
             case .failure(let error):
                 print("Error  = > ", error.localizedDescription.debugDescription)
             }

@@ -43,11 +43,12 @@ class RoomsViewController: UIViewController {
             switch result {
             case .success(let model):
                 model.forEach({ (model) in
-                    DispatchQueue.main.async {
                     self.roomsArray.append(model)
-                    self.roomsTable.reloadData()
-                    }
                 })
+                DispatchQueue.main.async {
+                    self.roomsTable.reloadData()
+                }
+                
             case .failure(let error):
                 print("Error  = > ", error.localizedDescription.debugDescription)
             }
