@@ -35,20 +35,41 @@ class PeopleTableViewCell: UITableViewCell {
     
     func bindData(people:People){
         
-        userName.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Person Name :",people.fullName ?? "-"))
-        email.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Email :",people.email ?? "-"))
-        jobtitle.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Job Title :",people.jobtitle ?? "-"))
-        favouriteColor.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Favourite Color :",people.favouriteColor?.capitalized ?? "-"))
+        var finalName = String()
         
-        displayImage.downloadImage(urlString: people.avatar!)
+        if people.firstName != nil  && people.firstName!.count > 0 {
+            finalName.append(people.firstName!)
+        }
+        if people.lastName != nil  && people.lastName!.count > 0 {
+        if finalName.count > 0 {
+            finalName.append(" ")
+            finalName.append(people.lastName!)
+        }else{
+             finalName.append(people.lastName!)
+           }
+        }
         
-//     let data = try? Data(contentsOf: URL(string:people.avatar!)!)
-//        DispatchQueue.main.async {
-//            if let imageData = data {
-//                let image = UIImage(data: imageData)
-//                self.displayImage.image = image
-//            }
-//        }
+        userName.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Person Name :",finalName))
+        
+        if let emailId = people.email {
+            email.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Email :",emailId))
+        }
+        
+        if let jobTitle = people.jobtitle {
+            jobtitle.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Job Title :",jobTitle))
+        }
+        
+        if let favColor = people.favouriteColor {
+            favouriteColor.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Favourite Color :",favColor.capitalized))
+        }
+        
+        if let personimg = people.avatar {
+            displayImage.downloadImage(urlString: personimg)
+        }
+        
+        
+        
+        
         
     }
 

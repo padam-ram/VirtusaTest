@@ -23,7 +23,7 @@ enum RequestType: String {
 enum NetworkError: Error {
     case domainError
     case decodingError
-    case noDataError
+    case noDataError 
 }
 
 
@@ -48,7 +48,7 @@ class APIWapperClass : NSObject {
     
     class func ServicerequestForGetMethod<T:Decodable>(_ requestModel:RequestModelForGet,
                                         _ modelType: T.Type,
-                                        completion: @escaping (Result<T,NetworkError>) -> Void) {
+                                        completion: @escaping (Result<T,NetworkError>,HTTPURLResponse) -> Void) {
                 
         if !Reachability.isConnectedToNetwork(){
             print("No Internet Acess")
@@ -72,7 +72,9 @@ class APIWapperClass : NSObject {
         
         session.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 401 {
+                if response.statusCode == 404 {
+                    completion(.failure(.noDataError), response )
+                    return
                 }
             }
 
@@ -80,14 +82,14 @@ class APIWapperClass : NSObject {
                 do {
                     let jsonDecoder = JSONDecoder()
                     let responseModel = try jsonDecoder.decode(T.self, from: data)
-                    completion(.success(responseModel ))
+                    completion(.success(responseModel), response as! HTTPURLResponse)
                 } catch {
                     //type of failure
-                    completion(.failure(.decodingError))
+                    completion(.failure(.decodingError), response as! HTTPURLResponse)
                     print(error)
                 }
             } else {
-                completion(.failure(.noDataError))
+                completion(.failure(.noDataError), response as! HTTPURLResponse)
             }
         }.resume()
     }

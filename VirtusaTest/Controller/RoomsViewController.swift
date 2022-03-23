@@ -38,7 +38,7 @@ class RoomsViewController: UIViewController {
         self.lodingindicator()
         let URL =  NSURL(string:kBaseURL + kRooms)
         let request = RequestModelForGet(url:URL!,querryItems: nil,httpHeaderField: nil, httpHeaderField_userInputContent: nil)
-        APIWapperClass.ServicerequestForGetMethod(request, [Rooms].self) { result in
+        APIWapperClass.ServicerequestForGetMethod(request, [Rooms].self) { result,response  in
             self.hideindicator()
             switch result {
             case .success(let model):
@@ -46,7 +46,9 @@ class RoomsViewController: UIViewController {
                     self.roomsArray.append(model)
                 })
                 DispatchQueue.main.async {
+                    if self.roomsArray.count > 0 {
                     self.roomsTable.reloadData()
+                  }
                 }
                 
             case .failure(let error):

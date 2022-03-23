@@ -24,7 +24,18 @@
 		185BAA7327E36AAD00605509 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BAA7227E36AAD00605509 /* RoomsViewController.swift */; };
 		185BAA7527E36D8700605509 /* RoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BAA7427E36D8700605509 /* RoomsTableViewCell.swift */; };
 		185BAA7727E36F4700605509 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BAA7627E36F4700605509 /* AppUtility.swift */; };
+		18E4E60E27E993CD00E388A6 /* APISValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E4E60D27E993CD00E388A6 /* APISValidation.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18E4E60827E9936300E388A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 185BAA3127E32C6400605509 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 185BAA3827E32C6400605509;
+			remoteInfo = VirtusaTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		185BAA3927E32C6400605509 /* VirtusaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtusaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +57,19 @@
 		185BAA7227E36AAD00605509 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		185BAA7427E36D8700605509 /* RoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewCell.swift; sourceTree = "<group>"; };
 		185BAA7627E36F4700605509 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		18E4E60427E9936300E388A6 /* VirtusaTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtusaTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E4E60D27E993CD00E388A6 /* APISValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		185BAA3627E32C6400605509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18E4E60127E9936300E388A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				185BAA3B27E32C6400605509 /* VirtusaTest */,
+				18E4E60527E9936300E388A6 /* VirtusaTestTests */,
 				185BAA3A27E32C6400605509 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				185BAA3927E32C6400605509 /* VirtusaTest.app */,
+				18E4E60427E9936300E388A6 /* VirtusaTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,11 +100,12 @@
 		185BAA3B27E32C6400605509 /* VirtusaTest */ = {
 			isa = PBXGroup;
 			children = (
-				185BAA5527E32D2800605509 /* Delegates */,
+				185BAA5527E32D2800605509 /* Common */,
 				185BAA5227E32CFB00605509 /* Model */,
 				185BAA5327E32D0200605509 /* View */,
 				185BAA5427E32D1200605509 /* Controller */,
 				185BAA5627E32D6A00605509 /* NetworkHandler */,
+				185BAA5C27E32E8800605509 /* Rechability */,
 				185BAA7127E35AEC00605509 /* Utils */,
 				185BAA4227E32C6400605509 /* Main.storyboard */,
 				185BAA4527E32C6600605509 /* Assets.xcassets */,
@@ -120,30 +143,21 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		185BAA5527E32D2800605509 /* Delegates */ = {
+		185BAA5527E32D2800605509 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				185BAA3C27E32C6400605509 /* AppDelegate.swift */,
 				185BAA6327E3367900605509 /* SceneDelegate.swift */,
 			);
-			path = Delegates;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		185BAA5627E32D6A00605509 /* NetworkHandler */ = {
 			isa = PBXGroup;
 			children = (
 				185BAA5727E32D6A00605509 /* APIWapperClass.swift */,
-				185BAA5C27E32E8800605509 /* Rechability */,
 			);
 			path = NetworkHandler;
-			sourceTree = "<group>";
-		};
-		185BAA5927E32DB700605509 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				185BAA5A27E32DE300605509 /* Constant.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		185BAA5C27E32E8800605509 /* Rechability */ = {
@@ -154,22 +168,22 @@
 			path = Rechability;
 			sourceTree = "<group>";
 		};
-		185BAA6727E350AE00605509 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				185BAA6827E350C600605509 /* Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		185BAA7127E35AEC00605509 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				185BAA7627E36F4700605509 /* AppUtility.swift */,
-				185BAA6727E350AE00605509 /* Extensions */,
-				185BAA5927E32DB700605509 /* Constants */,
+				185BAA6827E350C600605509 /* Extensions.swift */,
+				185BAA5A27E32DE300605509 /* Constant.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		18E4E60527E9936300E388A6 /* VirtusaTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				18E4E60D27E993CD00E388A6 /* APISValidation.swift */,
+			);
+			path = VirtusaTestTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +206,24 @@
 			productReference = 185BAA3927E32C6400605509 /* VirtusaTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		18E4E60327E9936300E388A6 /* VirtusaTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18E4E60C27E9936300E388A6 /* Build configuration list for PBXNativeTarget "VirtusaTestTests" */;
+			buildPhases = (
+				18E4E60027E9936300E388A6 /* Sources */,
+				18E4E60127E9936300E388A6 /* Frameworks */,
+				18E4E60227E9936300E388A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18E4E60927E9936300E388A6 /* PBXTargetDependency */,
+			);
+			name = VirtusaTestTests;
+			productName = VirtusaTestTests;
+			productReference = 18E4E60427E9936300E388A6 /* VirtusaTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +236,10 @@
 				TargetAttributes = {
 					185BAA3827E32C6400605509 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					18E4E60327E9936300E388A6 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 185BAA3827E32C6400605509;
 					};
 				};
 			};
@@ -221,6 +257,7 @@
 			projectRoot = "";
 			targets = (
 				185BAA3827E32C6400605509 /* VirtusaTest */,
+				18E4E60327E9936300E388A6 /* VirtusaTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +270,13 @@
 				185BAA4927E32C6600605509 /* LaunchScreen.storyboard in Resources */,
 				185BAA4627E32C6600605509 /* Assets.xcassets in Resources */,
 				185BAA4427E32C6400605509 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18E4E60227E9936300E388A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +304,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18E4E60027E9936300E388A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18E4E60E27E993CD00E388A6 /* APISValidation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18E4E60927E9936300E388A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 185BAA3827E32C6400605509 /* VirtusaTest */;
+			targetProxy = 18E4E60827E9936300E388A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		185BAA4227E32C6400605509 /* Main.storyboard */ = {
@@ -454,6 +514,54 @@
 			};
 			name = Release;
 		};
+		18E4E60A27E9936300E388A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7EJT6JN9YV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.modulemd.VirtusaTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VirtusaTest.app/VirtusaTest";
+			};
+			name = Debug;
+		};
+		18E4E60B27E9936300E388A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7EJT6JN9YV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.modulemd.VirtusaTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VirtusaTest.app/VirtusaTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -471,6 +579,15 @@
 			buildConfigurations = (
 				185BAA4E27E32C6600605509 /* Debug */,
 				185BAA4F27E32C6600605509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18E4E60C27E9936300E388A6 /* Build configuration list for PBXNativeTarget "VirtusaTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18E4E60A27E9936300E388A6 /* Debug */,
+				18E4E60B27E9936300E388A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

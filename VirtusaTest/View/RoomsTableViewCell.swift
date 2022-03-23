@@ -33,18 +33,24 @@ class RoomsTableViewCell: UITableViewCell {
     
     func bindData(rooms:Rooms){
         
-        roomNoLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Room # :",rooms.id ?? "-"))
-        
-        if rooms.isOccupied == true {
-            occupancyStatusLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Occupancy Status :","Full" ))
-            availabilityColor.backgroundColor = .red
-        }else{
-            occupancyStatusLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Occupancy Status :","Available"))
-            availabilityColor.backgroundColor = .systemGreen
+        if let roomId = rooms.id {
+            roomNoLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Room # :",roomId))
         }
         
-        capacityLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Capacity # :",String(rooms.maxOccupancy!) ))
+        if let status = rooms.isOccupied {
+            
+            if status == true {
+                occupancyStatusLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Occupancy Status :","Full" ))
+                availabilityColor.backgroundColor = .red
+            }else{
+                occupancyStatusLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Occupancy Status :","Available"))
+                availabilityColor.backgroundColor = .systemGreen
+            }
+        }
         
+        if let capacity = rooms.maxOccupancy {
+        capacityLabel.attributedText = AppUtility.attributeTextBuilding(stringName: String(format:"%@ - %@","Capacity # :",String(capacity) ))
+        }
     }
     
 

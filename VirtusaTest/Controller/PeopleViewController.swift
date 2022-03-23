@@ -38,7 +38,7 @@ class PeopleViewController: UIViewController {
         self.lodingindicator()
         let URL =  NSURL(string:kBaseURL + kPeople)
         let request = RequestModelForGet(url:URL!,querryItems: nil,httpHeaderField: nil, httpHeaderField_userInputContent: nil)
-        APIWapperClass.ServicerequestForGetMethod(request, [People].self) { result in
+        APIWapperClass.ServicerequestForGetMethod(request, [People].self) { result,response in
             self.hideindicator()
             switch result {
             case .success(let model):
@@ -47,8 +47,10 @@ class PeopleViewController: UIViewController {
                 })
                 
                 DispatchQueue.main.async { [self] in
-                    peopleArray = peopleArray.sorted(by: { $0.firstName! < $1.firstName! })
-                    peopleTable.reloadData()
+                    if peopleArray.count > 0 {
+                        peopleArray = peopleArray.sorted(by: { $0.firstName! < $1.firstName! })
+                        peopleTable.reloadData()
+                    }
                 }
             case .failure(let error):
                 print("Error  = > ", error.localizedDescription.debugDescription)
